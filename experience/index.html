@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Muhammad Saad — PKCERT Flutter App Development Internship Certificate">
+  <title>Experience Certificate — Muhammad Saad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .cert-page {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 30px 28px 100px;
+    }
+
+    .cert-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0 50px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--green);
+      border: 1px solid var(--green);
+      padding: 10px 18px;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      background: transparent;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background: rgba(100, 255, 218, 0.1);
+      transform: translateX(-4px);
+    }
+
+    .cert-header {
+      margin-bottom: 35px;
+    }
+
+    .cert-eyebrow {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--green);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .cert-title {
+      font-size: clamp(30px, 5vw, 46px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .cert-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .cert-meta .company-tag {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .cert-meta .date-badge {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--green);
+      background: rgba(100, 255, 218, 0.08);
+      border: 1px solid rgba(100, 255, 218, 0.25);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .cert-description {
+      max-width: 780px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: #94a3b8;
+    }
+
+    .cert-showcase {
+      margin: 40px 0;
+      background: #0d1e2e;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 25px 60px -15px rgba(2, 12, 27, 0.7);
+      position: relative;
+      transition: border-color 0.3s ease;
+    }
+
+    .cert-showcase:hover {
+      border-color: rgba(100, 255, 218, 0.4);
+    }
+
+    .cert-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(35, 53, 84, 0.7);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cert-toolbar-info {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cert-toolbar-info span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      display: inline-block;
+      box-shadow: 0 0 8px var(--green);
+    }
+
+    .cert-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .cert-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #ccd6f6;
+      border: 1px solid #233554;
+      background: #112240;
+      padding: 7px 14px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .cert-action-btn:hover {
+      color: var(--green);
+      border-color: var(--green);
+      background: rgba(100, 255, 218, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .cert-image-frame {
+      width: 100%;
+      background: #081422;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(35, 53, 84, 0.5);
+      position: relative;
+    }
+
+    .cert-full-img {
+      width: 100%;
+      height: auto;
+      max-height: 82vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
+      transition: transform 0.3s ease;
+    }
+
+    .cert-image-frame:hover .cert-full-img {
+      transform: scale(1.01);
+    }
+
+    .cert-details-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    .cert-details-block h3 {
+      font-size: 20px;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .cert-details-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cert-details-block li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    .cert-details-block li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+    }
+
+    .cert-sidebar h4 {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .cert-sidebar-item {
+      margin-bottom: 24px;
+    }
+
+    .cert-sidebar-item p {
+      color: #ccd6f6;
+      font-size: 14px;
+    }
+
+    .cert-sidebar .tags {
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .cert-page {
+        padding: 20px 18px 80px;
+      }
+
+      .cert-details-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .cert-showcase {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cert-page">
+    <nav class="cert-nav">
+      <a class="logo" href="../#top" aria-label="home">
+        <svg viewBox="0 0 84 96" width="42" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="42 3, 80 25, 80 71, 42 93, 4 71, 4 25" stroke="#64ffda" stroke-width="5"
+            stroke-linecap="round" stroke-linejoin="round" />
+          <text x="42" y="61" text-anchor="middle" fill="#64ffda" font-size="34" font-family="'DM Mono', monospace"
+            font-weight="600">S</text>
+        </svg>
+      </a>
+      <a href="../#experience" class="back-btn">
+        <span>←</span> Back to Portfolio
+      </a>
+    </nav>
+
+    <header class="cert-header">
+      <div class="cert-eyebrow">
+        <span>02.</span> Experience Certificate
+      </div>
+      <h1 class="cert-title">Software Development Intern</h1>
+      <div class="cert-meta">
+        <span class="company-tag">PKCERT (Pakistan Cyber Emergency Response Team)</span>
+        <span>•</span>
+        <span class="date-badge">JUL — SEP 2026</span>
+      </div>
+      <p class="cert-description">
+        Official Certificate of Internship issued by PKCERT upon successful completion of the Flutter App Development
+        program, focusing on cross-platform mobile engineering, REST APIs, cloud databases, and state management.
+      </p>
+    </header>
+
+    <section class="cert-showcase">
+      <div class="cert-toolbar">
+        <div class="cert-toolbar-info">
+          <span></span> Verified Internship Credential
+        </div>
+        <div class="cert-actions">
+          <a href="../pkcert.png" target="_blank" class="cert-action-btn" title="Open full resolution in a new tab">
+            Open Original ↗
+          </a>
+          <a href="../pkcert.png" target="_blank  download=" Muhammad_Saad_PKCERT_Certificate.png"
+            class="cert-action-btn" title="Download certificate image">
+            Download ⤓
+          </a>
+        </div>
+      </div>
+
+      <div class="cert-image-frame">
+        <img src="../pkcert.png" alt="PKCERT Certificate of Internship — Muhammad Saad" class="cert-full-img">
+      </div>
+    </section>
+
+    <div class="cert-details-grid">
+      <div class="cert-details-block">
+        <h3>Internship Highlights & Deliverables</h3>
+        <ul>
+          <li>
+            Engineered <strong>Spice &amp; Slice</strong>, a full-featured recipe application using Flutter and Dart.
+          </li>
+          <li>
+            Integrated TheMealDB REST APIs with asynchronous data parsing, error handling, and search capabilities.
+          </li>
+          <li>
+            Implemented Firebase Authentication and Cloud Firestore for secure user accounts, profiles, and bookmarking.
+          </li>
+          <li>
+            Built clean, responsive mobile user interfaces adaptable across multiple screen dimensions.
+          </li>
+        </ul>
+      </div>
+
+      <aside class="cert-sidebar">
+        <div class="cert-sidebar-item">
+          <h4>Technologies Used</h4>
+          <div class="tags">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>Firebase</span>
+            <span>REST API</span>
+            <span>Firestore</span>
+          </div>
+        </div>
+
+        <div class="cert-sidebar-item">
+          <h4>Organization</h4>
+          <p>PKCERT</p>
+        </div>
+
+        <div class="cert-sidebar-item">
+          <h4>Timeline</h4>
+          <p>July 2026 — September 2026</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer>
+    <span>Designed & built by Saad Khan</span>
+    <span>HTML · CSS · JavaScript</span>
+    <a href="../#experience">Back to Experience ↑</a>
+  </footer>
+</body>
+
+</html>

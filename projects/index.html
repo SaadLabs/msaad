@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Muhammad Saad</title>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var p = (params.get('project') || params.get('p') || params.get('id') || window.location.hash.replace('#', '') || '').toLowerCase();
+      if (p.indexOf('naan') !== -1) {
+        window.location.replace('naannow.html');
+      } else if (p.indexOf('spice') !== -1) {
+        window.location.replace('spice-slice.html');
+      } else if (p.indexOf('tree') !== -1 || p.indexOf('binary') !== -1) {
+        window.location.replace('binary-tree.html');
+      } else {
+        window.location.replace('geargo.html');
+      }
+    })();
+  </script>
+</head>
+
+<body style="background:#0a192f;color:#64ffda;font-family:sans-serif;padding:40px;text-align:center;">
+  <p>Redirecting to project showcase...</p>
+  <p><a href="geargo.html" style="color:#64ffda;">Click here if you are not redirected automatically.</a></p>
+</body>
+
+</html>

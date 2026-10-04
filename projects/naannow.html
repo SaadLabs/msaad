@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NaanNow — Food Delivery Platform with Live Rider Tracking by Muhammad Saad">
+  <title>NaanNow — Project Showcase · Muhammad Saad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .project-page {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 30px 28px 100px;
+    }
+
+    .project-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0 50px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--green);
+      border: 1px solid var(--green);
+      padding: 10px 18px;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      background: transparent;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background: rgba(100, 255, 218, 0.1);
+      transform: translateX(-4px);
+    }
+
+    .project-header {
+      margin-bottom: 35px;
+    }
+
+    .project-eyebrow {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--green);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .project-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .project-meta .company-tag {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .project-meta .status-badge {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--green);
+      background: rgba(100, 255, 218, 0.08);
+      border: 1px solid rgba(100, 255, 218, 0.25);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .project-description {
+      max-width: 780px;
+      font-size: 15.5px;
+      line-height: 1.8;
+      color: #94a3b8;
+    }
+
+    .project-showcase {
+      margin: 40px 0;
+      background: #0d1e2e;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 25px 60px -15px rgba(2, 12, 27, 0.7);
+      position: relative;
+      transition: border-color 0.3s ease;
+    }
+
+    .project-showcase:hover {
+      border-color: rgba(100, 255, 218, 0.4);
+    }
+
+    .project-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(35, 53, 84, 0.7);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .project-toolbar-info {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-toolbar-info span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      display: inline-block;
+      box-shadow: 0 0 8px var(--green);
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #ccd6f6;
+      border: 1px solid #233554;
+      background: #112240;
+      padding: 7px 14px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .project-action-btn:hover {
+      color: var(--green);
+      border-color: var(--green);
+      background: rgba(100, 255, 218, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .project-image-frame {
+      width: 100%;
+      min-height: 380px;
+      background: #081422;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(35, 53, 84, 0.5);
+      position: relative;
+    }
+
+    .project-full-img {
+      width: 100%;
+      height: auto;
+      max-height: 82vh;
+      object-fit: cover;
+      display: block;
+      border-radius: 6px;
+      transition: transform 0.3s ease;
+    }
+
+    .project-image-frame:hover .project-full-img {
+      transform: scale(1.01);
+    }
+
+    .project-large-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      min-height: 380px;
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(13, 30, 46, 0.7), rgba(8, 20, 34, 0.9));
+      border: 1px dashed rgba(100, 255, 218, 0.3);
+      border-radius: 6px;
+      transition: border-color 0.3s ease;
+    }
+
+    .project-showcase:hover .project-large-placeholder {
+      border-color: rgba(100, 255, 218, 0.6);
+    }
+
+    .project-large-placeholder svg {
+      color: var(--green);
+      opacity: 0.85;
+      transition: transform 0.3s ease;
+    }
+
+    .project-showcase:hover .project-large-placeholder svg {
+      transform: scale(1.08);
+      opacity: 1;
+    }
+
+    .project-large-placeholder span {
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 500;
+      color: #ccd6f6;
+      letter-spacing: 0.04em;
+    }
+
+    .project-large-placeholder small {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .project-details-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    .project-details-block h3 {
+      font-size: 20px;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .project-details-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .project-details-block li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.7;
+    }
+
+    .project-details-block li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+    }
+
+    .project-details-block li strong {
+      color: var(--white);
+    }
+
+    .project-sidebar h4 {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .project-sidebar-item {
+      margin-bottom: 24px;
+    }
+
+    .project-sidebar-item p {
+      color: #ccd6f6;
+      font-size: 14px;
+    }
+
+    .project-pagination {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .pagination-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      background: #0d201c;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s ease;
+      flex: 1;
+      max-width: 320px;
+    }
+
+    .pagination-btn.next {
+      margin-left: auto;
+      text-align: right;
+      justify-content: flex-end;
+    }
+
+    .pagination-btn:hover {
+      border-color: var(--green);
+      background: rgba(18, 42, 36, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .pagination-arrow {
+      color: var(--green);
+      font-size: 18px;
+    }
+
+    .pagination-label small {
+      display: block;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .pagination-label b {
+      font-size: 14px;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .project-page {
+        padding: 20px 18px 80px;
+      }
+
+      .project-details-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .project-showcase {
+        padding: 16px;
+      }
+
+      .project-pagination {
+        flex-direction: column;
+      }
+
+      .pagination-btn {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="project-page">
+    <nav class="project-nav">
+      <a class="logo" href="../#top" aria-label="home">
+        <svg viewBox="0 0 84 96" width="42" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="42 3, 80 25, 80 71, 42 93, 4 71, 4 25" stroke="#64ffda" stroke-width="5"
+            stroke-linecap="round" stroke-linejoin="round" />
+          <text x="42" y="61" text-anchor="middle" fill="#64ffda" font-size="34" font-family="'DM Mono', monospace"
+            font-weight="600">S</text>
+        </svg>
+      </a>
+      <a href="../#projects" class="back-btn">
+        <span>←</span> Back to Portfolio
+      </a>
+    </nav>
+
+    <header class="project-header">
+      <div class="project-eyebrow">
+        <span>03.</span> Featured Project · 02
+      </div>
+      <h1 class="project-title">NaanNow</h1>
+      <div class="project-meta">
+        <span class="company-tag">Food Delivery Ecosystem</span>
+        <span>•</span>
+        <span class="status-badge">Full-Stack &amp; DevOps</span>
+      </div>
+      <p class="project-description">
+        Real-time food delivery platform featuring live rider coordination, instant chat capabilities, restaurant administration,
+        role-based security, and microservice containerization with Docker.
+      </p>
+    </header>
+
+    <section class="project-showcase">
+      <div class="project-toolbar">
+        <div class="project-toolbar-info">
+          <span></span> Application Preview &amp; Screenshot
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/Khizar515/NaanNow" target="_blank" rel="noreferrer" class="project-action-btn" title="View source code on GitHub">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:2px;">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            GitHub Repo ↗
+          </a>
+          <a href="../naannow.png" target="_blank" class="project-action-btn" title="Open full resolution in a new tab">
+            Open Original ↗
+          </a>
+          <a href="../naannow.png" download="NaanNow_Screenshot.png" class="project-action-btn" title="Download project image">
+            Download ⤓
+          </a>
+        </div>
+      </div>
+
+      <div class="project-image-frame">
+        <img src="../naannow.png" alt="NaanNow Food Delivery Platform Preview" class="project-full-img" style="display:none;"
+          onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+          onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+        <div class="project-large-placeholder">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+          <span>NaanNow Screenshot</span>
+          <small>Place naannow.png in the project root or update img src</small>
+        </div>
+      </div>
+    </section>
+
+    <div class="project-details-grid">
+      <div class="project-details-block">
+        <h3>Key Features &amp; Technical Highlights</h3>
+        <ul>
+          <li>
+            <strong>Real-Time Rider &amp; Chat Sync:</strong> WebSockets and bidirectional event channels enabling live customer-rider messaging and order progression updates.
+          </li>
+          <li>
+            <strong>Robust Backend with Express &amp; Node.js:</strong> Scalable RESTful API architecture providing low-latency request processing and transaction handling.
+          </li>
+          <li>
+            <strong>MongoDB Document Storage:</strong> Flexible schemaless storage for fast menu searches, multi-restaurant catalogs, order states, and customer reviews.
+          </li>
+          <li>
+            <strong>Docker Containerization:</strong> Containerized multi-service setup ensuring reproducible local environments, automated builds, and predictable deployments.
+          </li>
+        </ul>
+      </div>
+
+      <aside class="project-sidebar">
+        <div class="project-sidebar-item">
+          <h4>Technologies Used</h4>
+          <div class="tags">
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>MongoDB</span>
+            <span>Docker</span>
+            <span>WebSockets</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+
+        <div class="project-sidebar-item">
+          <h4>GitHub Repository</h4>
+          <p><a href="https://github.com/Khizar515/NaanNow" target="_blank" rel="noreferrer" class="live-link">github.com/Khizar515/NaanNow ↗</a></p>
+        </div>
+
+        <div class="project-sidebar-item">
+          <h4>Project Scope</h4>
+          <p>Full-Stack Real-Time Delivery System</p>
+        </div>
+
+        <div class="project-sidebar-item">
+          <h4>Focus Areas</h4>
+          <p>Real-Time Messaging · Microservices · Containerization</p>
+        </div>
+      </aside>
+    </div>
+
+    <nav class="project-pagination">
+      <a href="geargo.html" class="pagination-btn prev">
+        <span class="pagination-arrow">←</span>
+        <span class="pagination-label">
+          <small>Previous Project</small>
+          <b>GearGo</b>
+        </span>
+      </a>
+      <a href="spice-slice.html" class="pagination-btn next">
+        <span class="pagination-label">
+          <small>Next Project</small>
+          <b>Spice &amp; Slice</b>
+        </span>
+        <span class="pagination-arrow">→</span>
+      </a>
+    </nav>
+  </div>
+
+  <footer>
+    <span>Designed &amp; built by Saad Khan</span>
+    <span>HTML · CSS · JavaScript</span>
+    <a href="../#projects">Back to Projects ↑</a>
+  </footer>
+</body>
+
+</html>
