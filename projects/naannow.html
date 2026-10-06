@@ -11,6 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css">
   <style>
     .project-page {
@@ -389,15 +390,9 @@
 <body>
   <div class="project-page">
     <nav class="project-nav">
-      <a class="logo" href="../#top" aria-label="home">
-        <svg viewBox="0 0 84 96" width="42" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="42 3, 80 25, 80 71, 42 93, 4 71, 4 25" stroke="#64ffda" stroke-width="5"
-            stroke-linecap="round" stroke-linejoin="round" />
-          <text x="42" y="61" text-anchor="middle" fill="#64ffda" font-size="34" font-family="'DM Mono', monospace"
-            font-weight="600">S</text>
-        </svg>
-      </a>
-      <a href="../#projects" class="back-btn">
+      <a class="logo" href="../index.html#top" aria-label="home">Saad.Dev</a>
+      <a href="../index.html#projects" class="back-btn"
+        onclick="if(window.history.length > 1){ window.history.back(); return false; }">
         <span>←</span> Back to Portfolio
       </a>
     </nav>
@@ -406,14 +401,15 @@
       <div class="project-eyebrow">
         <span>03.</span> Featured Project · 02
       </div>
-      <h1 class="project-title">NaanNow</h1>
+      <h1 class="project-title">NaanNow (Coming soon)</h1>
       <div class="project-meta">
         <span class="company-tag">Food Delivery Ecosystem</span>
         <span>•</span>
         <span class="status-badge">Full-Stack &amp; DevOps</span>
       </div>
       <p class="project-description">
-        Real-time food delivery platform featuring live rider coordination, instant chat capabilities, restaurant administration,
+        Real-time food delivery platform featuring live rider coordination, instant chat capabilities, restaurant
+        administration,
         role-based security, and microservice containerization with Docker.
       </p>
     </header>
@@ -424,23 +420,29 @@
           <span></span> Application Preview &amp; Screenshot
         </div>
         <div class="project-actions">
-          <a href="https://github.com/Khizar515/NaanNow" target="_blank" rel="noreferrer" class="project-action-btn" title="View source code on GitHub">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:2px;">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          <a href="https://github.com/Khizar515/NaanNow" target="_blank" rel="noreferrer" class="project-action-btn"
+            title="View source code on GitHub">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:2px;">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+              </path>
             </svg>
             GitHub Repo ↗
           </a>
           <a href="../naannow.png" target="_blank" class="project-action-btn" title="Open full resolution in a new tab">
             Open Original ↗
           </a>
-          <a href="../naannow.png" download="NaanNow_Screenshot.png" class="project-action-btn" title="Download project image">
+          <!-- <a href="../naannow.png" download="NaanNow_Screenshot.png" class="project-action-btn"
+            title="Download project image">
             Download ⤓
-          </a>
+          </a> -->
         </div>
       </div>
 
       <div class="project-image-frame">
-        <img src="../naannow.png" alt="NaanNow Food Delivery Platform Preview" class="project-full-img" style="display:none;"
+        <img src="../naannow.png" alt="NaanNow Food Delivery Platform Preview" class="project-full-img"
+          style="display:none;"
           onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
           onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
         <div class="project-large-placeholder">
@@ -450,8 +452,8 @@
             <circle cx="8.5" cy="8.5" r="1.5"></circle>
             <polyline points="21 15 16 10 5 21"></polyline>
           </svg>
-          <span>NaanNow Screenshot</span>
-          <small>Place naannow.png in the project root or update img src</small>
+          <span>NaanNow (Coming Soon)</span>
+          <!-- <small>Place naannow.png in the project root or update img src</small> -->
         </div>
       </div>
     </section>
@@ -461,16 +463,20 @@
         <h3>Key Features &amp; Technical Highlights</h3>
         <ul>
           <li>
-            <strong>Real-Time Rider &amp; Chat Sync:</strong> WebSockets and bidirectional event channels enabling live customer-rider messaging and order progression updates.
+            <strong>Real-Time Rider &amp; Chat Sync:</strong> WebSockets and bidirectional event channels enabling live
+            customer-rider messaging and order progression updates.
           </li>
           <li>
-            <strong>Robust Backend with Express &amp; Node.js:</strong> Scalable RESTful API architecture providing low-latency request processing and transaction handling.
+            <strong>Robust Backend with Express &amp; Node.js:</strong> Scalable RESTful API architecture providing
+            low-latency request processing and transaction handling.
           </li>
           <li>
-            <strong>MongoDB Document Storage:</strong> Flexible schemaless storage for fast menu searches, multi-restaurant catalogs, order states, and customer reviews.
+            <strong>MongoDB Document Storage:</strong> Flexible schemaless storage for fast menu searches,
+            multi-restaurant catalogs, order states, and customer reviews.
           </li>
           <li>
-            <strong>Docker Containerization:</strong> Containerized multi-service setup ensuring reproducible local environments, automated builds, and predictable deployments.
+            <strong>Docker Containerization:</strong> Containerized multi-service setup ensuring reproducible local
+            environments, automated builds, and predictable deployments.
           </li>
         </ul>
       </div>
@@ -490,7 +496,8 @@
 
         <div class="project-sidebar-item">
           <h4>GitHub Repository</h4>
-          <p><a href="https://github.com/Khizar515/NaanNow" target="_blank" rel="noreferrer" class="live-link">github.com/Khizar515/NaanNow ↗</a></p>
+          <p><a href="https://github.com/Khizar515/NaanNow" target="_blank" rel="noreferrer"
+              class="live-link">github.com/Khizar515/NaanNow ↗</a></p>
         </div>
 
         <div class="project-sidebar-item">
@@ -505,28 +512,12 @@
       </aside>
     </div>
 
-    <nav class="project-pagination">
-      <a href="geargo.html" class="pagination-btn prev">
-        <span class="pagination-arrow">←</span>
-        <span class="pagination-label">
-          <small>Previous Project</small>
-          <b>GearGo</b>
-        </span>
-      </a>
-      <a href="spice-slice.html" class="pagination-btn next">
-        <span class="pagination-label">
-          <small>Next Project</small>
-          <b>Spice &amp; Slice</b>
-        </span>
-        <span class="pagination-arrow">→</span>
-      </a>
-    </nav>
   </div>
 
   <footer>
     <span>Designed &amp; built by Saad Khan</span>
     <span>HTML · CSS · JavaScript</span>
-    <a href="../#projects">Back to Projects ↑</a>
+    <a href="../index.html#projects">Back to Projects ↑</a>
   </footer>
 </body>
 

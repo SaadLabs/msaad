@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects — Muhammad Saad</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
@@ -15,16 +16,18 @@
         window.location.replace('spice-slice.html');
       } else if (p.indexOf('tree') !== -1 || p.indexOf('binary') !== -1) {
         window.location.replace('binary-tree.html');
-      } else {
+      } else if (p.indexOf('gear') !== -1) {
         window.location.replace('geargo.html');
+      } else {
+        window.location.replace('../index.html#projects');
       }
     })();
   </script>
 </head>
 
 <body style="background:#0a192f;color:#64ffda;font-family:sans-serif;padding:40px;text-align:center;">
-  <p>Redirecting to project showcase...</p>
-  <p><a href="geargo.html" style="color:#64ffda;">Click here if you are not redirected automatically.</a></p>
+  <p>Redirecting to projects...</p>
+  <p><a href="../index.html#projects" style="color:#64ffda;">Click here to return to Projects.</a></p>
 </body>
 
 </html>

@@ -1,13 +1,36 @@
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
-    const target = document.querySelector(link.getAttribute('href'));
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+
+    const targetId = href.slice(1);
+
+    if (typeof closeMobileNav === 'function') {
+      closeMobileNav();
+    }
+
+    if (targetId === 'top') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const target = document.getElementById(targetId);
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
+      const headerHeight = header ? header.offsetHeight : 75;
+      const targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      window.scrollTo({
+        top: Math.max(0, targetTop),
+        behavior: 'smooth'
+      });
       if (link.closest('nav')) {
         document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
         link.classList.add('active');
       }
+    } else if (targetId === 'certifications') {
+      e.preventDefault();
+      window.location.href = 'certifications/index.html';
     }
   });
 });
@@ -90,8 +113,11 @@ if (header) {
       // Away from top: add shadow and glass background
       header.classList.add('nav-scrolled');
 
+      // Do not hide header if mobile nav is currently open
+      const isMobileNavOpen = siteNav && siteNav.classList.contains('nav-open');
+
       // Scrolling down -> hide navbar
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      if (currentScrollY > lastScrollY && currentScrollY > 80 && !isMobileNavOpen) {
         header.classList.add('nav-hidden');
       } else if (currentScrollY < lastScrollY) {
         // Scrolling up -> reveal navbar
@@ -102,4 +128,59 @@ if (header) {
     lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
     updateActiveNav();
   }, { passive: true });
+}
+
+// Mobile Hamburger Navigation Drawer
+const menuToggle = document.getElementById('menu-toggle');
+const siteNav = document.getElementById('site-nav');
+
+function closeMobileNav() {
+  if (!menuToggle || !siteNav) return;
+  menuToggle.classList.remove('is-active');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  siteNav.classList.remove('nav-open');
+  if (header) header.classList.remove('nav-open-header');
+}
+
+function openMobileNav() {
+  if (!menuToggle || !siteNav) return;
+  menuToggle.classList.add('is-active');
+  menuToggle.setAttribute('aria-expanded', 'true');
+  siteNav.classList.add('nav-open');
+  if (header) header.classList.add('nav-open-header');
+}
+
+if (menuToggle && siteNav) {
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = siteNav.classList.contains('nav-open');
+    if (isOpen) {
+      closeMobileNav();
+    } else {
+      openMobileNav();
+    }
+  });
+
+  // Clicking outside the sidebar closes it
+  document.addEventListener('click', (e) => {
+    if (siteNav.classList.contains('nav-open')) {
+      if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+        closeMobileNav();
+      }
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && siteNav.classList.contains('nav-open')) {
+      closeMobileNav();
+    }
+  });
+
+  // Close if window resized to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 760 && siteNav.classList.contains('nav-open')) {
+      closeMobileNav();
+    }
+  });
 }

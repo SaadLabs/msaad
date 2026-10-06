@@ -11,6 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css">
   <style>
     .project-page {
@@ -389,15 +390,8 @@
 <body>
   <div class="project-page">
     <nav class="project-nav">
-      <a class="logo" href="../#top" aria-label="home">
-        <svg viewBox="0 0 84 96" width="42" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="42 3, 80 25, 80 71, 42 93, 4 71, 4 25" stroke="#64ffda" stroke-width="5"
-            stroke-linecap="round" stroke-linejoin="round" />
-          <text x="42" y="61" text-anchor="middle" fill="#64ffda" font-size="34" font-family="'DM Mono', monospace"
-            font-weight="600">S</text>
-        </svg>
-      </a>
-      <a href="../#projects" class="back-btn">
+      <a class="logo" href="../index.html#top" aria-label="home">Saad.Dev</a>
+      <a href="../index.html#projects" class="back-btn" onclick="if(window.history.length > 1){ window.history.back(); return false; }">
         <span>←</span> Back to Portfolio
       </a>
     </nav>
@@ -504,28 +498,12 @@
       </aside>
     </div>
 
-    <nav class="project-pagination">
-      <a href="spice-slice.html" class="pagination-btn prev">
-        <span class="pagination-arrow">←</span>
-        <span class="pagination-label">
-          <small>Previous Project</small>
-          <b>Spice &amp; Slice</b>
-        </span>
-      </a>
-      <a href="geargo.html" class="pagination-btn next">
-        <span class="pagination-label">
-          <small>Next Project</small>
-          <b>GearGo</b>
-        </span>
-        <span class="pagination-arrow">→</span>
-      </a>
-    </nav>
   </div>
 
   <footer>
     <span>Designed &amp; built by Saad Khan</span>
     <span>HTML · CSS · JavaScript</span>
-    <a href="../#projects">Back to Projects ↑</a>
+    <a href="../index.html#projects">Back to Projects ↑</a>
   </footer>
 </body>
 

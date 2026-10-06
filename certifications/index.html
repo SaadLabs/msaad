@@ -11,6 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css">
   <style>
     .cert-page {
@@ -465,15 +466,8 @@
 <body>
   <div class="cert-page">
     <nav class="cert-nav">
-      <a class="logo" href="../#top" aria-label="home">
-        <svg viewBox="0 0 84 96" width="42" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="42 3, 80 25, 80 71, 42 93, 4 71, 4 25" stroke="#64ffda" stroke-width="5"
-            stroke-linecap="round" stroke-linejoin="round" />
-          <text x="42" y="61" text-anchor="middle" fill="#64ffda" font-size="34" font-family="'DM Mono', monospace"
-            font-weight="600">S</text>
-        </svg>
-      </a>
-      <a href="../#certifications" class="back-btn">
+      <a class="logo" href="../index.html#top" aria-label="home">Saad.Dev</a>
+      <a href="../index.html" class="back-btn" onclick="if(window.history.length > 1){ window.history.back(); return false; }">
         <span>←</span> Back to Portfolio
       </a>
     </nav>
