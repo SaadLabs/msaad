@@ -1,3 +1,31 @@
+// Shared element references (declared at top to avoid temporal dead zone issues)
+const menuToggle = document.getElementById('menu-toggle');
+const siteNav = document.getElementById('site-nav');
+
+// Image load/error helper — replaces repetitive inline onload/onerror handlers
+document.querySelectorAll('.img-loading').forEach(img => {
+  function onImgLoad() {
+    img.style.display = 'block';
+    const sibling = img.nextElementSibling;
+    if (sibling) sibling.style.display = 'none';
+    img.removeEventListener('load', onImgLoad);
+  }
+  function onImgError() {
+    img.style.display = 'none';
+    const sibling = img.nextElementSibling;
+    if (sibling) sibling.style.display = 'flex';
+    img.removeEventListener('error', onImgError);
+  }
+  if (img.complete && img.naturalWidth > 0) {
+    onImgLoad();
+  } else if (img.complete) {
+    onImgError();
+  } else {
+    img.addEventListener('load', onImgLoad);
+    img.addEventListener('error', onImgError);
+  }
+});
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
@@ -288,8 +316,7 @@ if (header) {
 }
 
 // Mobile Hamburger Navigation Drawer
-const menuToggle = document.getElementById('menu-toggle');
-const siteNav = document.getElementById('site-nav');
+// (menuToggle and siteNav are declared at top of file)
 
 function closeMobileNav() {
   if (!menuToggle || !siteNav) return;
